@@ -1,38 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #02172b;
+  color: #333;
+}
+
 .App {
   text-align: center;
+  padding: 2rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  font-size: 2.5rem;
+  color: #068cd9; /* Golden color */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Recipe list */
+.recipe-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Recipe card */
+.recipe {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.recipe:hover {
+  transform: translateY(-5px);
+}
+
+.recipe-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.recipe h3 {
+  margin: 10px 0;
+  font-size: 1.5rem;
+  color: #010e29;
+}
+
+.recipe p {
+  margin: 10px;
+}
+
+.stock {
+  color: #047857; /* Green for stock available */
+}
+
+.out-of-stock {
+  color: #dc2626; /* Red for out of stock */
+  font-weight: bold;
+}
+.order-button {
+    padding: 10px 15px;
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #2563eb; /* Blue for available orders */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .order-button:hover {
+    background-color: #1e3a8a; /* Darker blue on hover */
+  }
+  
+  .order-button:disabled {
+    background-color: #9ca3af; /* Gray for unavailable orders */
+    cursor: not-allowed;
+  }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .recipe h3 {
+    font-size: 1.2rem;
   }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 768px) {
+    .order-button {
+      font-size: 0.9rem;
+      padding: 8px 12px;
+    }
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
